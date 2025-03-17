@@ -8,7 +8,7 @@ pipeline {
         }
         stage ("Build") {
             steps {
-                sh "docker build -t online-shop ."
+                sh "docker build -t trainwithshubham/two-tier-flask-app:latest ."
             }
         }
         stage ("Docker push"){ 
