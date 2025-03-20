@@ -1,17 +1,14 @@
-@Library("Shared") _
 pipeline {
     agent {label "dev"};
     stages {
         stage ("code"){
             steps {
-                script{
-                code-clone("https://github.com/SnehaSanam/two-tier-flask-app.git", "master")
+               git url :"https://github.com/SnehaSanam/two-tier-flask-app.git", branch: "master"
                 }
         }
         stage ("Build") {
             steps {
-                scripts {
-                    docker-build("two-tier-flask-app", "latest","snehasanam")
+                sh docker build -t two-tier-flask-app:latest ."
             }
         }
         stage ("Docker push"){ 
