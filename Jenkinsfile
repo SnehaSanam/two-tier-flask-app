@@ -6,12 +6,13 @@ pipeline {
                git url :"https://github.com/SnehaSanam/two-tier-flask-app.git", branch: "master"
                 }
         }
+       
         stage ("Build") {
-            stage {
             steps {
                 sh "docker build -t two-tier-flask-app:latest ."
             }
         }
+        
         stage ("Docker push"){ 
             steps {
                 withCredentials([usernamePassword(
