@@ -7,7 +7,7 @@ pipeline {
                 script{
                 clone("https://github.com/SnehaSanam/two-tier-flask-app.git","master")
                 }
-        }
+            }
         }
         stage ("Build") {
             steps {
